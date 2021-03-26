@@ -9,6 +9,3 @@ PrintString:
         jmp .Loop
     .Exit:
     ret
-
-TestString:
-    db 'Hello World! This is a test string.',0
