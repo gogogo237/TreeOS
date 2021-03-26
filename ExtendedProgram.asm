@@ -24,6 +24,9 @@ EnableA20:
 
 [bits 32]
 
+%include "CPUID.asm"
+%include "SimplePaging.asm"
+
 StartProtectedMode:
 	
 	mov ax, dataseg
@@ -34,7 +37,30 @@ StartProtectedMode:
 	mov gs, ax
 
 	mov [0xb8000], byte 'H'
+	mov [0xb8002], byte 'E'
+	mov [0xb8004], byte 'L'
+	mov [0xb8006], byte 'L'
+	mov [0xb8008], byte 'O'
+	mov [0xb800a], byte 'W'
+	mov [0xb800c], byte 'O'
+	mov [0xb800e], byte 'R'
+	mov [0xb8010], byte 'L'
+	mov [0xb8012], byte 'D'
+	mov [0xb8014], byte '!'
 
+	call DetectCPUID
+	call DetectLongMode
+	call SetUpIdentityPaging
+	call EditGDT
+	jmp codeseg:Start64Bit
+
+[bits 64]
+
+Start64Bit:
+	mov edi, 0xb8000
+	mov rax, 0x1f201f201f201f20
+	mov ecx, 500
+	rep stosq
 	jmp $
 
 times 2048-($-$$) db 0
