@@ -1,2 +1,8 @@
 bootloader.flp
 *.bin
+.vs/TreeOS/v16/Browse.VC.db-shm
+.vs/TreeOS/v16/Browse.VC.db-wal
+.vs/TreeOS/v16/Browse.VC.opendb
+.vs/TreeOS/v16/Browse.VC.db
+*.db
+.vs/TreeOS/v16/.suo
