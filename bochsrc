@@ -1,0 +1,7 @@
+floppya: 1_44="bootloader.flp", status=inserted #Use FLoppy Disk A
+boot: floppy
+display_library: x
+#display_library:sdl
+romimage: file=/usr/local/share/bochs/BIOS-bochs-latest
+vgaromimage: file=/usr/local/share/bochs/VGABIOS-lgpl-latest
+keyboard:  keymap=/usr/local/share/bochs/keymaps/x11-pc-us.map
