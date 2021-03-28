@@ -1,7 +1,9 @@
 #include "TextPrint.cpp"
 extern "C" void _start() {
-    int* ptr = (int*)0xb8000;
-    *ptr = 0x50505050;
-    SetCursorPosition(PositionFromCoords(12, 18));
+    SetCursorPosition(PositionFromCoords(0, 0));
+    PrintString("Hello World!\n\rThis is a new line\n\r");
+    PrintString(HexToString(0x1234abcd));
+    PrintString("\n\r");
+    PrintString(HexToString("HI"));
     return;
 }
