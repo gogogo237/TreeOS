@@ -6,6 +6,7 @@ INPUT
 (
     ExtendedProgram.o
     Kernel.o
+    Binaries.o
 )
 
 OUTPUT
