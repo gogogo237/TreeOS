@@ -6,7 +6,7 @@ jmp EnterProtectedMode
 %include "print.asm"
 
 EnterProtectedMode:
-	call EnableA20
+	call EnableA20				; 0x803e
 	cli
 	lgdt [gdt_descriptor]
 	mov eax, cr0				; Enable Protected Mode
@@ -54,6 +54,8 @@ StartProtectedMode:
 
 [bits 64]
 [extern _start]
+
+%include "IDT.asm"
 
 Start64Bit:
 	mov edi, 0xb8000

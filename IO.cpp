@@ -6,6 +6,6 @@ void outb(unsigned short port, unsigned char val) {
 
 unsigned char inb(unsigned short port){
     unsigned char returnVal;
-    asm volatile ("inb %1, %0"  : : "a"(returnVal), "Nd"(port));
+    asm volatile ("inb %1, %0"  : "=a"(returnVal) : "Nd"(port));
     return returnVal;
 }

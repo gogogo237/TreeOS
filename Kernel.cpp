@@ -1,10 +1,8 @@
 #include "TextPrint.cpp"
+#include "IDT.cpp"
 
-extern const char Test[];
-extern const char Test2[];
-
-extern "C" void _start() {
-    SetCursorPosition(PositionFromCoords(0, 0));
-    PrintString(Test2);
+extern "C" void _start() {      //0x8b86
+    SetCursorPosition(PositionFromCoords(0, 0)); //PositionFromCoords 0x893a SetCursorPosition 0x88c0
+    InitializeIDT();                             //InitializeIDT 0x8a5a
     return;
 }
