@@ -5,3 +5,4 @@ display_library: x, options="gui_debug"
 romimage: file=/usr/local/share/bochs/BIOS-bochs-latest
 vgaromimage: file=/usr/local/share/bochs/VGABIOS-lgpl-latest
 keyboard:  keymap=/usr/local/share/bochs/keymaps/x11-pc-us.map
+vga: extension=vbe, update_freq=30, realtime=1
