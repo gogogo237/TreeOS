@@ -4,8 +4,11 @@ jmp EnterProtectedMode
 
 %include "gdt.asm"
 %include "print.asm"
+%include "DetectMemory.asm"
 
 EnterProtectedMode:
+
+	call DetectMemory
 	call EnableA20				; 0x803e
 	cli
 	lgdt [gdt_descriptor]

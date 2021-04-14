@@ -1,7 +1,7 @@
 #include "TextPrint.cpp"
 #include "IDT.cpp"
-
 #include "Keyboard.cpp"
+#include "MemoryMap.cpp"
 
 extern "C" void _start() {      //0x8b86
     SetCursorPosition(PositionFromCoords(0, 0)); //PositionFromCoords 0x893a SetCursorPosition 0x88c0
@@ -15,6 +15,9 @@ extern "C" void _start() {      //0x8b86
 
     SetCursorPosition(PositionFromCoords(0, 1));
     PrintString(FloatToString(testFloat, 10));
+
+    SetCursorPosition(PositionFromCoords(0, 3));
+    PrintString(IntegerToString(MemoryRegionCount));
 
     return;
 }
