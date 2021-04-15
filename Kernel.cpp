@@ -1,7 +1,7 @@
-#include "TextPrint.cpp"
-#include "IDT.cpp"
-#include "Keyboard.cpp"
-#include "MemoryMap.cpp"
+#include "TextPrint.h"
+#include "IDT.h"
+#include "Keyboard.h"
+#include "MemoryMap.h"
 
 extern "C" void _start() {      //0x8b86
     SetCursorPosition(PositionFromCoords(0, 0)); //PositionFromCoords 0x893a SetCursorPosition 0x88c0

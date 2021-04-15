@@ -6,6 +6,11 @@ INPUT
 (
     ExtendedProgram.o
     Kernel.o
+    IDT.o
+    IO.o
+    MemoryMap.o
+    TextPrint.o
+    Keyboard.o
     Binaries.o
 )
 
