@@ -5,15 +5,7 @@ ENTRY(_start)
 INPUT
 (
     ExtendedProgram.o
-    Kernel.o
-    IDT.o
-    IO.o
-    MemoryMap.o
-    TextPrint.o
-    Keyboard.o
-    Heap.o
-    Memory.o
-    Binaries.o
+    libkernel.a
 )
 
 OUTPUT

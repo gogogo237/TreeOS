@@ -1,20 +1,20 @@
 #!/bin/bash
 
-nasm bootloader.asm -f bin -o bootloader.bin
+nasm src/bootloader.asm -f bin -i src -o bootloader.bin
 
-nasm ExtendedProgram.asm -f elf64 -o ExtendedProgram.o
+nasm src/ExtendedProgram.asm -f elf64 -i src -o ExtendedProgram.o
 
-nasm Binaries.asm -f elf64 -o Binaries.o
+cmake CMakeLists.txt -G "Unix Makefiles" -D CMAKE_CXX_COMPILER=x86_64-elf-gcc -D CMAKE_C_COMPILER=x86_64-elf-gcc
 
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Kernel.cpp -o Kernel.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c IDT.cpp -o IDT.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c IO.cpp -o IO.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Keyboard.cpp -o Keyboard.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c MemoryMap.cpp -o MemoryMap.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c TextPrint.cpp -o TextPrint.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Heap.cpp -o Heap.o
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Memory.cpp -o Memory.o
-
-x86_64-elf-ld -T"link.ld"
+make -f "Makefile"
 
 cat bootloader.bin Kernel.bin > bootloader.flp
+
+rm Kernel.bin
+rm libkernel.a
+rm Makefile
+rm cmake_install.cmake
+rm bootloader.bin
+rm ExtendedProgram.o
+
+rm -rf CMakeFiles
