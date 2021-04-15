@@ -2,6 +2,7 @@
 #include "IDT.h"
 #include "Keyboard.h"
 #include "MemoryMap.h"
+#include "Heap.h"
 
 extern "C" void _start() {      //0x8b86
     SetCursorPosition(PositionFromCoords(0, 0)); //PositionFromCoords 0x893a SetCursorPosition 0x88c0
@@ -10,10 +11,10 @@ extern "C" void _start() {      //0x8b86
 
     MemoryMapEntry** usableRegionMaps = GetUsableMemoryRegions();
 
-    for (uint_8 i = 0; i < UsableMemoryRegionCount; i++) {
-        MemoryMapEntry* memMap = usableRegionMaps[i];
-        PrintMemoryMap(memMap, CursorPosition);
-    }
+    InitializeHeap(0x100000, 0x100000);
+    void* TestMemoryAddress = malloc(60);
+
+    PrintString(HexToString((uint_64)TestMemoryAddress));
 
     return;
 }

@@ -12,6 +12,7 @@ x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c IO.cpp -o IO.o
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Keyboard.cpp -o Keyboard.o
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c MemoryMap.cpp -o MemoryMap.o
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c TextPrint.cpp -o TextPrint.o
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c Heap.cpp -o Heap.o
 
 x86_64-elf-ld -T"link.ld"
 
