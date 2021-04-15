@@ -22,5 +22,17 @@ extern "C" void _start() {      //0x8b86
     PrintString("\n\r");
     PrintString(HexToString((uint_64)TestMemoryAddress3));
 
+    free(TestMemoryAddress);
+    free(TestMemoryAddress2);
+    free(TestMemoryAddress3);
+
+    void* Test4 = malloc(0x60);
+    PrintString("\n\r");
+    PrintString(HexToString((uint_64)Test4));
+
+    void* Test5 = calloc(5, 5);
+    PrintString("\n\rCalloc\n\r");
+    PrintString(HexToString((uint_64)Test5));
+
     return;
 }

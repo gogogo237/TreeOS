@@ -12,6 +12,7 @@ INPUT
     TextPrint.o
     Keyboard.o
     Heap.o
+    Memory.o
     Binaries.o
 )
 
