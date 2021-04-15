@@ -12,27 +12,19 @@ extern "C" void _start() {      //0x8b86
     MemoryMapEntry** usableRegionMaps = GetUsableMemoryRegions();
 
     InitializeHeap(0x100000, 0x100000);
-    void* TestMemoryAddress = malloc(0x10);
-    void* TestMemoryAddress2 = malloc(0x10);
-    void* TestMemoryAddress3 = malloc(0x10);
 
-    PrintString(HexToString((uint_64)TestMemoryAddress));
+    uint_64* TestAddress = (uint_64*)malloc(0x08);
+    *TestAddress = 12345678;
+    PrintString(IntegerToString(*TestAddress));
     PrintString("\n\r");
-    PrintString(HexToString((uint_64)TestMemoryAddress2));
+
+    uint_64* TestAddress2 = (uint_64*)realloc(TestAddress, 0x08);
+    PrintString(IntegerToString(*TestAddress2));
     PrintString("\n\r");
-    PrintString(HexToString((uint_64)TestMemoryAddress3));
 
-    free(TestMemoryAddress);
-    free(TestMemoryAddress2);
-    free(TestMemoryAddress3);
-
-    void* Test4 = malloc(0x60);
+    uint_64* TestAddress3 = (uint_64*)calloc(0x08);
+    PrintString(IntegerToString(*TestAddress));
     PrintString("\n\r");
-    PrintString(HexToString((uint_64)Test4));
-
-    void* Test5 = calloc(5, 5);
-    PrintString("\n\rCalloc\n\r");
-    PrintString(HexToString((uint_64)Test5));
 
     return;
 }
