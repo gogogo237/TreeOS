@@ -22,5 +22,9 @@ extern "C" void _start() {      //0x8b86
     PrintString(HexToString((uint_64)TestAddress2));
     PrintString("\n\r");
 
+    PrintString(Test2);
+    PrintString("\n\r");
+    PrintString(Test);
+
     return;
 }

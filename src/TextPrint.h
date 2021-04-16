@@ -7,6 +7,8 @@
 #define VGA_WIDTH 80
 
 extern uint_16 CursorPosition;
+extern const char Test[];
+extern const char Test2[];
 
 void ClearScreen(uint_64 ClearColor = BACKGROUND_BLACK | FOREGROUND_RED);
 void SetCursorPosition(uint_16 position);

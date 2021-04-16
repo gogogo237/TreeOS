@@ -5,6 +5,7 @@ ENTRY(_start)
 INPUT
 (
     ExtendedProgram.o
+    Binaries.o
     libkernel.a
 )
 

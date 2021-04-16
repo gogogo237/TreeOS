@@ -4,6 +4,8 @@ nasm src/bootloader.asm -f bin -i src -o bootloader.bin
 
 nasm src/ExtendedProgram.asm -f elf64 -i src -o ExtendedProgram.o
 
+nasm src/Binaries.asm -f elf64 -i src -o Binaries.o
+
 cmake CMakeLists.txt -G "Unix Makefiles" -D CMAKE_CXX_COMPILER=x86_64-elf-gcc -D CMAKE_C_COMPILER=x86_64-elf-gcc
 
 make -f "Makefile"
